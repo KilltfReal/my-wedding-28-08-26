@@ -3,120 +3,295 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Приглашение на свадьбу Михаила и Валерии</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+<title>Свадьба KillReal & Ololoka</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@1,600;1,700&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
+  /* Сброс стилей и плавный скролл */
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #F9F8F5; padding: 20px; font-family: 'Montserrat', sans-serif; color: #333; }
-  .invite-root { max-width: 1100px; margin: 0 auto; background: #F9F8F5; display: flex; flex-wrap: wrap; gap: 30px; }
-  .inv-col { flex: 1; min-width: 300px; }
-  .inv-left { border-right: 1px solid #E8E2D3; padding-right: 30px; }
-  .inv-right { padding-left: 30px; }
+  html { scroll-behavior: smooth; }
+  
+  /* Праздничный градиентный фон на всю ширину */
+  body {
+    background: linear-gradient(145deg, #fcf9f5 0%, #f4ebe3 100%);
+    font-family: 'Montserrat', sans-serif;
+    color: #3e2c29;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+  }
 
-  .inv-header { text-align: center; margin-bottom: 40px; }
-  h1.inv-names { font-family: 'Playfair Display', serif; font-size: 48px; color: #821f22; line-height: 1.2; margin: 10px 0 20px; font-style: italic; }
-  .inv-date { font-size: 64px; font-weight: 600; color: #821f22; border: 2px solid #821f22; display: inline-block; padding: 0 15px; }
-  .inv-sub-title { font-family: 'Great Vibes', cursive; font-size: 28px; color: #821f22; margin-top: 15px; }
+  /* Анимация появления блоков */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+  .delay-1 { animation-delay: 0.2s; }
+  .delay-2 { animation-delay: 0.4s; }
+  .delay-3 { animation-delay: 0.6s; }
+  .delay-4 { animation-delay: 0.8s; }
+  .delay-5 { animation-delay: 1.0s; }
 
-  .inv-section { margin-bottom: 40px; border-top: 1px solid #821f22; padding-top: 20px; }
-  h2 { font-size: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-  p { font-size: 15px; line-height: 1.6; color: #555; margin-top: 10px; }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-  .inv-btn { display: inline-block; background: #821f22; color: #fff; padding: 12px 30px; text-decoration: none; margin-top: 15px; font-size: 14px; cursor: pointer; border: none; }
-  .inv-btn:hover { opacity: 0.9; }
+  /* Ограничитель контента (чтобы на широком мониторе текст не был слишком широким) */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
 
-  /* Дресс-код */
-  .inv-color-palette { display: flex; gap: 10px; margin: 15px 0; }
-  .inv-color-dot { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #ddd; }
+  /* Секции и карточки */
+  .section-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 60px;
+    box-shadow: 0 8px 30px rgba(130, 31, 34, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: relative;
+    text-align: center;
+  }
 
-  /* Блок Яндекс Формы */
-  .inv-yandex-form { background: #821f22; padding: 0; overflow: hidden; border: none; }
-  .inv-yandex-form-header { background: #821f22; padding: 20px 20px 0 20px; text-align: center; }
-  .inv-yandex-form-header h2 { color: #fff; margin: 0; }
-  .inv-yandex-form-header p { color: #e0d5c7; font-size: 14px; margin-bottom: 15px; }
-  .inv-yandex-form-footer { text-align: center; padding: 15px; background: #821f22; border-radius: 0 0 4px 4px; }
-  .inv-yandex-form-footer p { color: #e0d5c7; font-size: 12px; margin: 0; }
+  /* Цветовая палитра */
+  .color-burgundy { color: #821f22; }
+  .color-gold { color: #c09c6c; }
+  
+  /* ТИПОГРАФИКА И ЗАГОЛОВКИ */
+  h1.names {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 5rem;
+    line-height: 1.1;
+    color: #821f22;
+    letter-spacing: -1px;
+  }
+  .names span { display: block; font-size: 3rem; font-family: 'Great Vibes', cursive; color: #c09c6c; margin: 10px 0; }
+  
+  .date-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    font-weight: 700;
+    color: #821f22;
+    line-height: 1;
+  }
+  .date-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    letter-spacing: 4px;
+    font-weight: 600;
+    color: #821f22;
+  }
+  .sub-heading {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #821f22;
+    margin-bottom: 15px;
+  }
 
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: #821f22;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+  }
+  /* Золотые декоративные линии для заголовков */
+  h2.section-title::before,
+  h2.section-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 1px;
+    background: #c09c6c;
+  }
+  h2.section-title::before { right: calc(100% + 15px); }
+  h2.section-title::after { left: calc(100% + 15px); }
+
+  p { font-size: 16px; line-height: 1.8; color: #4a3b3b; }
+
+  /* КНОПКА НА ЯНДЕКС КАРТЫ */
+  .map-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 14px 40px;
+    background: transparent;
+    border: 2px solid #c09c6c;
+    color: #821f22;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+  }
+  .map-btn:hover {
+    background: #821f22;
+    color: #fff;
+    border-color: #821f22;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(130, 31, 34, 0.3);
+  }
+
+  /* ПРОГРАММА */
+  .timeline { display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto; }
+  .timeline-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed #e8d9d1;
+    padding: 8px 0;
+    font-weight: 500;
+  }
+  .timeline-item span:first-child { color: #821f22; font-weight: 600; }
+  .timeline-item span:last-child { color: #555; }
+
+  /* ДРЕСС-КОД */
+  .palette { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+  .dot {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  .dot:hover { transform: scale(1.2); }
+
+  /* ФОРМА ПОДТВЕРЖДЕНИЯ (Яндекс) */
+  .form-wrapper {
+    background: #821f22;
+    border-radius: 16px;
+    padding: 5px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(130, 31, 34, 0.2);
+  }
+  .form-wrapper iframe {
+    width: 100% !important;
+    height: 550px;
+    border: 0;
+    display: block;
+  }
+  .form-wrapper .inv-form-header {
+    padding: 20px 20px 0 20px;
+    color: #fff;
+  }
+  .form-wrapper .inv-form-header h2 {
+    color: #fff !important;
+    font-size: 1.8rem !important;
+  }
+  .form-wrapper .inv-form-header p {
+    color: #d2b89e !important;
+    font-size: 15px;
+  }
+  /* Убираем скрипт загрузки если он мешает, оставляем чистый iframe с адаптивом */
+  
+  /* ПОДВАЛ */
+  .footer-text {
+    text-align: center;
+    padding: 40px 20px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #821f22;
+  }
+
+  /* МОБИЛЬНАЯ АДАПТАЦИЯ */
   @media (max-width: 768px) {
-    .invite-root { flex-direction: column; gap: 0; }
-    .inv-left { border-right: none; padding-right: 0; border-bottom: 1px solid #E8E2D3; padding-bottom: 20px; }
-    .inv-right { padding-left: 0; }
+    .container { padding: 40px 15px; }
+    .section-card { padding: 25px; margin-bottom: 30px; }
+    h1.names { font-size: 3.5rem; }
+    .names span { font-size: 2rem; }
+    .date-number { font-size: 4.5rem; }
+    .date-text { font-size: 1.5rem; letter-spacing: 2px; }
+    h2.section-title { font-size: 1.5rem; }
+    h2.section-title::before, h2.section-title::after { width: 20px; }
+    .form-wrapper iframe { height: 500px; }
+  }
+  @media (max-width: 450px) {
+    .container { padding: 20px 10px; }
+    h1.names { font-size: 2.8rem; }
+    .date-number { font-size: 3.5rem; }
+    .form-wrapper iframe { height: 450px; }
+    .palette { gap: 10px; }
   }
 </style>
 </head>
 <body>
 
-<div class="invite-root">
-  <!-- ЛЕВАЯ КОЛОНКА -->
-  <div class="inv-col inv-left">
-    <div class="inv-header">
-      <div class="inv-heart" style="font-size: 50px; color: #821f22;">❤</div>
-      <h1 class="inv-names">Михаил<br>&<br>Валерия</h1>
-      <div class="inv-date">05 / 06 / 26</div>
-      <div class="inv-sub-title">Мы женимся!</div>
-    </div>
-    
-    <div class="inv-section">
-      <h2>Дорогие родные и друзья!</h2>
-      <p>Скоро мы скажем друг другу самое главное слово — «Да»! Мы очень хотим разделить этот особенный день с вами!</p>
-    </div>
-    
-    <div class="inv-section">
-      <div class="inv-location-title">Локация</div>
-      <div class="inv-location-info" style="margin: 10px 0;">Загородный клуб «Барбара»<br>Адрес: Краснодарский край, пос. Знаменский</div>
-      <a href="https://maps.google.com" target="_blank" class="inv-btn">Построить маршрут</a>
-    </div>
-    
-    <div class="inv-section inv-program">
-      <h2>Программа нашего дня</h2>
-      <div class="inv-timeline" style="margin-top: 15px;">
-        <div class="inv-time-item">15:30 — Велком</div>
-        <div class="inv-time-item">16:00 — Церемония</div>
-        <div class="inv-time-item">17:00 — Банкет</div>
-        <div class="inv-time-item">23:00 — Финал</div>
-      </div>
-    </div>
-  </div>
+<div class="container">
 
-  <!-- ПРАВАЯ КОЛОНКА -->
-  <div class="inv-col inv-right">
-    <div class="inv-section inv-dresscode">
-      <h2>Дресс-код</h2>
-      <p>Мы очень старались сделать праздник красивым и будем рады, если в своих нарядах вы поддержите цветовую гамму нашей свадьбы.</p>
-      <div class="inv-color-palette">
-        <div class="inv-color-dot" style="background:#D2B89E;"></div>
-        <div class="inv-color-dot" style="background:#821f22;"></div>
-        <div class="inv-color-dot" style="background:#FBF9F2;"></div>
-        <div class="inv-color-dot" style="background:#d1e0d2;"></div>
-      </div>
-    </div>
-    
-    <div class="inv-section">
-      <h2>Детали</h2>
-      <p>К сожалению, долго не женимся. Если у вас возникнут вопросы, мы будем рады ответить по телефону: +7 (999) 123-45-67.</p>
-    </div>
+  <!-- Шапка -->
+  <section class="section-card fade-in text-center">
+    <div style="font-family: 'Great Vibes', cursive; color: #c09c6c; font-size: 1.5rem; margin-bottom: 5px;">Save the date</div>
+    <h1 class="names">
+      KillReal <span>&</span> Ololoka
+    </h1>
+    <div class="date-number">28.08.26</div>
+    <div class="date-text">Свадьба</div>
+  </section>
 
-    <!-- БЛОК ЯНДЕКС ФОРМЫ -->
-    <div class="inv-section inv-yandex-form">
-      <div class="inv-yandex-form-header">
-        <h2>Будьте с нами!</h2>
-        <p>Заполните небольшую анкету прямо на сайте:</p>
-      </div>
-      
-      <!-- ВАЖНО: ЗАМЕНИТЕ НИЖЕ ССЫЛКУ НА ВАШУ ССЫЛКУ С ЯНДЕКС.ФОРМ -->
-      <!-- Ссылка должна браться из вкладки "Код для сайта" на forms.yandex.ru -->
-      <iframe src="https://forms.yandex.ru/cloud/6a424b1390fa7b2eca189a4e?iframe=1" frameborder="0" name="ya-form-6a424a3650569060040feadc" width="1000"></iframe>
-      
-      <div class="inv-yandex-form-footer">
-        <p>С нетернетернетернетерпением ждем ваших ответов!</p>
-      </div>
-    </div>
+  <!-- Вступление -->
+  <section class="section-card fade-in delay-1">
+    <h2 class="section-title">Дорогие родные и друзья!</h2>
+    <p>Скоро мы скажем друг другу самое главное слово — «Да»! Мы очень хотим разделить этот волшебный день с вами в атмосфере любви, уюта и праздника.</p>
+  </section>
 
-    <div class="inv-section inv-footer" style="border-top: none; text-align: center; padding-top: 10px;">
-      <h2>С нетернетернетерпением ждем встречи с вами!</h2>
-      <p style="font-family: 'Great Vibes', cursive; font-size: 24px; color: #821f22;">Михаил & Валерия</p>
+  <!-- Локация -->
+  <section class="section-card fade-in delay-2">
+    <h2 class="section-title">Локация</h2>
+    <div style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: #821f22;">Вилла-София</div>
+    <p style="margin: 5px 0 0 0;">Волгоградская область</p>
+    <!-- Ссылка на Яндекс Карты -->
+    <a href="https://yandex.ru/maps/?text=Вилла-София%20Волгоградская%20область" target="_blank" class="map-btn">Построить маршрут</a>
+  </section>
+
+  <!-- Программа -->
+  <section class="section-card fade-in delay-3">
+    <h2 class="section-title">Программа дня</h2>
+    <div class="timeline">
+      <div class="timeline-item"><span>15:30</span><span>Велком</span></div>
+      <div class="timeline-item"><span>16:00</span><span>Церемония</span></div>
+      <div class="timeline-item"><span>17:00</span><span>Банкет</span></div>
+      <div class="timeline-item"><span>23:00</span><span>Финал</span></div>
     </div>
-  </div>
+  </section>
+
+  <!-- Дресс-код -->
+  <section class="section-card fade-in delay-4">
+    <h2 class="section-title">Дресс-код</h2>
+    <p>Мы старались сделать праздник красивым. Если ваши наряды будут созвучны нашей цветовой гамме, мы будем бесконечно рады!</p>
+    <div class="palette">
+      <div class="dot" style="background:#fcf9f5;"></div>
+      <div class="dot" style="background:#821f22;"></div>
+      <div class="dot" style="background:#c09c6c;"></div>
+      <div class="dot" style="background:#d1e0d2;"></div>
+    </div>
+  </section>
+
+  <!-- Форма RSVP (Яндекс Форма) -->
+  <section class="fade-in delay-5" style="border: none; background: none; box-shadow: none; padding: 0;">
+    <div class="form-wrapper">
+      <div class="inv-form-header">
+        <h2 style="font-family: 'Playfair Display', serif;">Будьте с нами</h2>
+        <p>Заполните анкету, чтобы мы точно знали, кого ждать и кому нужен трансфер.</p>
+      </div>
+      <!-- Ваша Яндекс форма -->
+      <iframe src="https://forms.yandex.ru/cloud/6a424b1390fa7b2eca189a4e?iframe=1" width="100%" height="550" frameborder="0" style="border: none; width: 100%; min-height: 550px;"></iframe>
+    </div>
+  </section>
+
+  <!-- Подвал -->
+  <section class="footer-text fade-in delay-5">
+    С нетерпением ждем встречи с вами!<br>
+    <span style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #555; letter-spacing: 2px;">KillReal & Ololoka</span>
+  </section>
+
 </div>
 
 </body>
